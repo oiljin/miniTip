@@ -17,6 +17,8 @@
 	$.fn.miniTip = function(opts) {
 		// declare the default option values
 		var d = {
+			deltaX:		0,
+			deltaY:		0,
 			title:		'', // if left blank, no title bar will show
 			content:	false, // the content of the tooltip
 			delay:		300, // how long to wait before showing and hiding the tooltip (ms)
@@ -200,8 +202,8 @@
 						tipH = tt_w.outerHeight(),
 					
 						// calculate position for tooltip
-						mLeft = Math.round(left + Math.round((elW - tipW) / 2)),
-						mTop = Math.round(top + elH + o.offset + 8),
+						mLeft = Math.round(left + Math.round((elW - tipW) / 2)) - deltaX,
+						mTop = Math.round(top + elH + o.offset + 8) - deltaY,
 					
 						// position of the arrow
 						aLeft = (Math.round(tipW - 16) / 2) - parseInt(tt_w.css('borderLeftWidth'), 10),
